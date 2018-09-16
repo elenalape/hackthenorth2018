@@ -1,57 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>Your page title here :)</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <title>Assign notes</title>
+    <meta name="description" content="University of Edinburgh Lithuanian Society. Make yourself at home.">
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Quicksand" rel="stylesheet">
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="images/page-icon.png">
 
-</head>
-<body>
+<style>
+#div1 {
+    width: 350px;
+    height: 151px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+</style>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-  <form>
-    <div class="row">
-      <div class="five columns">
-        <label for="Username">Username</label>
-        <input class="u-full-width" type="text" placeholder="Username" id="Username">
-      </div>
-      <div class="five columns">
-        <label for="Username">Password</label>
-        <input class="u-full-width" type="password" placeholder="Password" id="Password">
-      </div>
-      <div class="two columns">
-        <label for="exampleEmailInput">&nbsp;</label>
-        <input class="button-primary" type="submit" value="Login">
-      </div>
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+    </script>
+  </head>
+
+  <!-- Page layout -->
+
+  <body>
+
+    <div class="container">
+        <div class="six columns">
+          <br>
+          <h5>Motions</h5>
+          <hr>
+          <img id="drag1" src="images/finger1.png" draggable="true" ondragstart="drag(event)" width="300" height="150">
+          <br>
+          <img id="drag1" src="images/finger2.png" draggable="true" ondragstart="drag(event)" width="300" height="150">
+          <br>
+          <img id="drag1" src="images/finger3.png" draggable="true" ondragstart="drag(event)" width="300" height="150">
+          <br>
+          <img id="drag1" src="images/finger4.png" draggable="true" ondragstart="drag(event)" width="300" height="150">
+          <br>
+          <img id="drag1" src="images/finger5.png" draggable="true" ondragstart="drag(event)" width="300" height="150">
+          <br>
+        </div>
+
+        <div class="five columns offset-by-one">
+          <br>
+          <h5>Notes</h5>
+          <hr>
+          <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">C</div>
+          <br>
+          <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">D</div>
+          <br>
+          <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">E</div>
+          <br>
+          <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">F</div>
+          <br>
+          <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">G</div>
+          <br>
+          <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">H</div>
+          <br>
+          <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">A</div>
+          <br>
+          <hr>
+        </div>
     </div>
-  </form>
-  </div>
 
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-</body>
+  </body>
+
 </html>
